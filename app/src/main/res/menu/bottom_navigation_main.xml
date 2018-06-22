@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_meditate"
+        android:enabled="true"
+        android:icon="@drawable/ic_description_24dp"
+        android:title="Mediate"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_me"
+        android:enabled="true"
+        android:icon="@drawable/ic_library_books_24dp"
+        android:title="text Me"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_more"
+        android:enabled="true"
+        android:icon="@drawable/ic_send_primary_24dp"
+        android:title="text More"
+        app:showAsAction="ifRoom" />
+</menu>

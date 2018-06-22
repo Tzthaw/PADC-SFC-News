@@ -1,0 +1,141 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white_full">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="0dp"
+        android:background="@color/white_full"
+        app:layout_scrollFlags="enterAlways">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/white_full"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_search"
+                    android:layout_weight="0.5"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:text="PADC News"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="@dimen/text_regular_3x"
+                    android:textStyle="bold"
+                    app:fontFamily="sans-serif-condensed" />
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_account_circle_black_24dp"
+                    android:layout_marginEnd="@dimen/margin_medium"/>
+            </LinearLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <com.padcmyanmar.sfc.viewpods.HeaderInfoViewPod
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/header_user_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2">
+
+                <org.mmtextview.components.MMTextView
+                    android:id="@+id/header_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thaw's briefing"
+                    android:textColor="@color/black_full"
+                    android:textSize="@dimen/text_regular_3x"
+                    android:textStyle="bold"
+                    app:fontFamily="serif" />
+
+                <org.mmtextview.components.MMTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/header_username"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="All News are right now"
+                    app:fontFamily="sans-serif-condensed" />
+                <ImageView
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="@dimen/margin_small"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/weatherlogo" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_full"
+                android:layout_below="@+id/header_user_layout"
+                android:layout_marginBottom="?attr/actionBarSize"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:context="com.padcmyanmar.sfc.activities.NewsListActivity">
+
+                <com.padcmyanmar.sfc.components.SmartRecyclerView
+                    android:id="@+id/rv_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.padcmyanmar.sfc.components.SmartRecyclerView>
+
+                <include
+                    android:id="@+id/vp_empty_news"
+                    layout="@layout/view_pod_empty_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </com.padcmyanmar.sfc.viewpods.HeaderInfoViewPod>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        android:elevation="4dp"
+        app:itemBackground="@color/white_full"
+        app:itemIconTint="@android:color/darker_gray"
+        app:itemTextColor="@android:color/darker_gray"
+        app:menu="@menu/bottom_navigation_main" />
+</android.support.design.widget.CoordinatorLayout>
+
